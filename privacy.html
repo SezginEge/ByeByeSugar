@@ -7,166 +7,92 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --accent: #DB5726;
-            --paper: #0f0d0b;
-            --card: #1f1c18;
-            --ink: #ede6db;
-            --muted: #9e9485;
-            --line: rgba(255,255,255,0.08);
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#DB5726',
+                        paper: '#0f0d0b',
+                        card: '#1f1c18',
+                        ink: '#ede6db',
+                        muted: '#9e9485',
+                        line: 'rgba(255,255,255,0.08)',
+                    },
+                    fontFamily: {
+                        serif: ['DM Serif Display', 'serif'],
+                        sans: ['Inter', '-apple-system', 'sans-serif'],
+                    },
+                },
+            },
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--paper);
-            color: var(--ink);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--line);
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 900;
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .logo a {
-            color: var(--ink);
-            text-decoration: none;
-        }
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--ink); }
-
-        .content {
-            padding: 80px 0;
-        }
-        .content h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 40px;
-            font-weight: 400;
-            margin-bottom: 12px;
-        }
-        .content .updated {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 48px;
-        }
-        .content h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 40px;
-            margin-bottom: 12px;
-        }
-        .content p {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-        .content ul {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            padding-left: 24px;
-        }
-        .content li { margin-bottom: 6px; }
-        .content a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .content a:hover { text-decoration: underline; }
-
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--line);
-            text-align: center;
-        }
-        footer p {
-            color: var(--muted);
-            font-size: 13px;
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                -webkit-font-smoothing: antialiased;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-paper text-ink font-sans">
 
-<nav>
-    <div class="container">
-        <div class="logo"><a href="index.html">ByeByeSugar</a></div>
-        <a href="index.html">Back to home</a>
+<nav class="py-5 border-b border-line">
+    <div class="max-w-[720px] mx-auto px-6 flex justify-between items-center">
+        <div class="font-black text-lg tracking-[3px] uppercase"><a href="index.html" class="text-ink no-underline">ByeByeSugar</a></div>
+        <a href="index.html" class="text-muted text-sm font-medium transition-colors hover:text-ink no-underline">Back to home</a>
     </div>
 </nav>
 
-<div class="content">
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 31, 2026</p>
+<div class="py-20">
+    <div class="max-w-[720px] mx-auto px-6">
+        <h1 class="font-serif text-[40px] font-normal mb-3">Privacy Policy</h1>
+        <p class="text-muted text-sm mb-12">Last updated: March 31, 2026</p>
 
-        <p>This privacy policy explains how the App handles your information.</p>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">This privacy policy explains how the App handles your information.</p>
 
-        <h2>Data Collection</h2>
-        <p>ByeByeSugar does not collect, store, or transmit any personal data to external servers. All your data stays on your device.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Data Collection</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">ByeByeSugar does not collect, store, or transmit any personal data to external servers. All your data stays on your device.</p>
 
-        <h2>What the App Stores Locally</h2>
-        <p>The following data is stored only on your device:</p>
-        <ul>
-            <li>Challenge progress (start date, check-in history, completion status)</li>
-            <li>Credit balance and transaction history</li>
-            <li>Achievement unlock records</li>
-            <li>Your selected goal preference</li>
-            <li>Notification preferences</li>
+        <h2 class="text-xl font-bold mt-10 mb-3">What the App Stores Locally</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">The following data is stored only on your device:</p>
+        <ul class="text-muted text-[15px] leading-[1.7] mb-4 pl-6 list-disc">
+            <li class="mb-1.5">Challenge progress (start date, check-in history, completion status)</li>
+            <li class="mb-1.5">Credit balance and transaction history</li>
+            <li class="mb-1.5">Achievement unlock records</li>
+            <li class="mb-1.5">Your selected goal preference</li>
+            <li class="mb-1.5">Notification preferences</li>
         </ul>
-        <p>This data is not accessible to us or any third party. It is not synced to any cloud service.</p>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">This data is not accessible to us or any third party. It is not synced to any cloud service.</p>
 
-        <h2>In-App Purchases</h2>
-        <p>ByeByeSugar offers consumable in-app purchases (credit packs) processed entirely by Apple through the App Store. We do not have access to your payment information. Purchase transactions are governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">In-App Purchases</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">ByeByeSugar offers consumable in-app purchases (credit packs) processed entirely by Apple through the App Store. We do not have access to your payment information. Purchase transactions are governed by <a href="https://www.apple.com/legal/privacy/" class="text-accent no-underline hover:underline">Apple's Privacy Policy</a>.</p>
 
-        <h2>Analytics and Tracking</h2>
-        <p>ByeByeSugar does not use any analytics SDKs, tracking pixels, or third-party services. We do not track your usage, behavior, or location.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Analytics and Tracking</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">ByeByeSugar does not use any analytics SDKs, tracking pixels, or third-party services. We do not track your usage, behavior, or location.</p>
 
-        <h2>Notifications</h2>
-        <p>If you enable notifications, they are scheduled locally on your device. No notification data is sent to external servers.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Notifications</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">If you enable notifications, they are scheduled locally on your device. No notification data is sent to external servers.</p>
 
-        <h2>Third-Party Services</h2>
-        <p>The App does not integrate with any third-party services, advertising networks, or data brokers.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Third-Party Services</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">The App does not integrate with any third-party services, advertising networks, or data brokers.</p>
 
-        <h2>Children's Privacy</h2>
-        <p>ByeByeSugar is not directed at children under 13. We do not knowingly collect information from children.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Children's Privacy</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">ByeByeSugar is not directed at children under 13. We do not knowingly collect information from children.</p>
 
-        <h2>Changes to This Policy</h2>
-        <p>If this policy changes, the updated version will be posted on this page with a revised date.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Changes to This Policy</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">If this policy changes, the updated version will be posted on this page with a revised date.</p>
 
-        <h2>Contact</h2>
-        <p>If you have questions about this privacy policy, contact us at <a href="mailto:sezginege.mail@gmail.com">sezginege.mail@gmail.com</a>.</p>
+        <h2 class="text-xl font-bold mt-10 mb-3">Contact</h2>
+        <p class="text-muted text-[15px] leading-[1.7] mb-4">If you have questions about this privacy policy, contact us at <a href="mailto:sezginege.mail@gmail.com" class="text-accent no-underline hover:underline">sezginege.mail@gmail.com</a>.</p>
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2026 ByeByeSugar. All rights reserved.</p>
+<footer class="py-10 border-t border-line text-center">
+    <div class="max-w-[720px] mx-auto px-6">
+        <p class="text-muted text-[13px]">&copy; 2026 ByeByeSugar. All rights reserved.</p>
     </div>
 </footer>
 

@@ -9,285 +9,141 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
-    <style>
-        :root {
-            --accent: #DB5726;
-            --paper: #0f0d0b;
-            --card: #1f1c18;
-            --card-elevated: #2e2924;
-            --ink: #ede6db;
-            --muted: #9e9485;
-            --line: rgba(255,255,255,0.08);
-            --radius: 24px;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#DB5726',
+                        paper: '#0f0d0b',
+                        card: '#1f1c18',
+                        'card-elevated': '#2e2924',
+                        ink: '#ede6db',
+                        muted: '#9e9485',
+                        line: 'rgba(255,255,255,0.08)',
+                    },
+                    fontFamily: {
+                        serif: ['DM Serif Display', 'serif'],
+                        sans: ['Inter', '-apple-system', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'card': '24px',
+                    },
+                },
+            },
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--paper);
-            color: var(--ink);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Nav */
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--line);
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 900;
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--ink); }
-        .nav-links { display: flex; gap: 24px; }
-
-        /* Hero */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(40px, 8vw, 64px);
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-        .hero h1 span { color: var(--accent); }
-        .hero p {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 480px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-        .badge {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--accent);
-            color: white;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .badge:hover { opacity: 0.9; }
-
-        /* How it works */
-        .section {
-            padding: 80px 0;
-            border-top: 1px solid var(--line);
-        }
-        .section-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .step {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .step-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        .step-content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .step-content p {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-        .feature {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 28px;
-        }
-        .feature h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .feature p {
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* Support */
-        .support {
-            text-align: center;
-        }
-        .support p {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        .support a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .support a:hover { text-decoration: underline; }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--line);
-            text-align: center;
-        }
-        footer p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-        }
-        footer a:hover { color: var(--ink); }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 16px;
-            font-size: 13px;
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                -webkit-font-smoothing: antialiased;
+            }
         }
     </style>
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
 </head>
-<body>
+<body class="bg-paper text-ink font-sans">
 
-<nav>
-    <div class="container">
-        <div class="logo">ByeByeSugar</div>
-        <div class="nav-links">
-            <a href="#how">How it works</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="#support">Support</a>
+<nav class="border-b border-line">
+    <div class="max-w-[720px] mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="font-black text-lg tracking-[3px] uppercase">ByeByeSugar</div>
+        <div class="hidden sm:flex gap-6">
+            <a href="#how" class="text-muted text-sm font-medium transition-colors hover:text-ink">How it works</a>
+            <a href="privacy.html" class="text-muted text-sm font-medium transition-colors hover:text-ink">Privacy</a>
+            <a href="#support" class="text-muted text-sm font-medium transition-colors hover:text-ink">Support</a>
+        </div>
+        <button onclick="toggleMenu()" class="sm:hidden text-muted hover:text-ink transition-colors" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-line">
+        <div class="max-w-[720px] mx-auto px-6 py-4 flex flex-col gap-4">
+            <a href="#how" onclick="toggleMenu()" class="text-muted text-sm font-medium transition-colors hover:text-ink">How it works</a>
+            <a href="privacy.html" class="text-muted text-sm font-medium transition-colors hover:text-ink">Privacy</a>
+            <a href="#support" onclick="toggleMenu()" class="text-muted text-sm font-medium transition-colors hover:text-ink">Support</a>
         </div>
     </div>
 </nav>
 
-<section class="hero">
-    <div class="container">
-        <h1>Break the <span>sugar</span> habit.</h1>
-        <p>Pick a challenge. Check in daily. Put credits on the line and earn them back when you finish.</p>
-        <a href="https://apps.apple.com/app/byebyesugar" class="badge">Download on the App Store</a>
+<section class="pt-[120px] pb-20 text-center">
+    <div class="max-w-[720px] mx-auto px-6">
+        <h1 class="font-serif text-[clamp(40px,8vw,64px)] font-normal leading-[1.1] mb-5">Break the <span class="text-accent">sugar</span> habit.</h1>
+        <p class="text-lg text-muted max-w-[480px] mx-auto mb-10 leading-relaxed">Pick a challenge. Check in daily. Put credits on the line and earn them back when you finish.</p>
+        <a href="https://apps.apple.com/us/app/byebyesugar/id6761415612" class="inline-block px-8 py-3.5 bg-accent text-white rounded-[14px] font-bold text-base no-underline transition-opacity hover:opacity-90">Download on the App Store</a>
     </div>
 </section>
 
-<section class="section" id="how">
-    <div class="container">
-        <h2 class="section-title">How it works</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Pick a challenge</h3>
-                    <p>7, 14, or 30 days. You spend credits to start, making the commitment real.</p>
+<section class="py-20 border-t border-line" id="how">
+    <div class="max-w-[720px] mx-auto px-6">
+        <h2 class="font-serif text-[32px] font-normal mb-10">How it works</h2>
+        <div class="flex flex-col gap-6">
+            <div class="flex gap-5 items-start">
+                <div class="w-11 h-11 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg shrink-0">1</div>
+                <div>
+                    <h3 class="text-lg font-bold mb-1">Pick a challenge</h3>
+                    <p class="text-muted text-[15px] leading-normal">7, 14, or 30 days. You spend credits to start, making the commitment real.</p>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Check in daily</h3>
-                    <p>Confirm you stayed sugar-free each day before your deadline.</p>
+            <div class="flex gap-5 items-start">
+                <div class="w-11 h-11 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg shrink-0">2</div>
+                <div>
+                    <h3 class="text-lg font-bold mb-1">Check in daily</h3>
+                    <p class="text-muted text-[15px] leading-normal">Confirm you stayed sugar-free each day before your deadline.</p>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Earn credits back</h3>
-                    <p>Complete the challenge and your credits are returned. Keep going.</p>
+            <div class="flex gap-5 items-start">
+                <div class="w-11 h-11 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg shrink-0">3</div>
+                <div>
+                    <h3 class="text-lg font-bold mb-1">Earn credits back</h3>
+                    <p class="text-muted text-[15px] leading-normal">Complete the challenge and your credits are returned. Keep going.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">Built for focus</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>Daily Briefings</h3>
-                <p>Evidence-based insights on sugar, tailored to your goal. New card every day.</p>
+<section class="py-20 border-t border-line">
+    <div class="max-w-[720px] mx-auto px-6">
+        <h2 class="font-serif text-[32px] font-normal mb-10">Built for focus</h2>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+            <div class="bg-card rounded-card p-7">
+                <h3 class="text-base font-bold mb-2">Daily Briefings</h3>
+                <p class="text-muted text-sm leading-normal">Evidence-based insights on sugar, tailored to your goal. New card every day.</p>
             </div>
-            <div class="feature">
-                <h3>Achievements</h3>
-                <p>Unlock badges as you build consistency. See how rare yours are.</p>
+            <div class="bg-card rounded-card p-7">
+                <h3 class="text-base font-bold mb-2">Achievements</h3>
+                <p class="text-muted text-sm leading-normal">Unlock badges as you build consistency. See how rare yours are.</p>
             </div>
-            <div class="feature">
-                <h3>No noise</h3>
-                <p>No social feeds. No ads. No subscriptions. Just you and the challenge.</p>
+            <div class="bg-card rounded-card p-7">
+                <h3 class="text-base font-bold mb-2">No noise</h3>
+                <p class="text-muted text-sm leading-normal">No social feeds. No ads. No subscriptions. Just you and the challenge.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section support" id="support">
-    <div class="container">
-        <h2 class="section-title">Support</h2>
-        <p>Questions, feedback, or issues? Reach out anytime.</p>
-        <a href="mailto:sezginege.mail@gmail.com">sezginege.mail@gmail.com</a>
+<section class="py-20 border-t border-line text-center" id="support">
+    <div class="max-w-[720px] mx-auto px-6">
+        <h2 class="font-serif text-[32px] font-normal mb-10">Support</h2>
+        <p class="text-muted text-[15px] leading-relaxed mb-4">Questions, feedback, or issues? Reach out anytime.</p>
+        <a href="mailto:sezginege.mail@gmail.com" class="text-accent font-semibold no-underline hover:underline">sezginege.mail@gmail.com</a>
     </div>
 </section>
 
-<footer>
-    <div class="container">
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="mailto:sezginege.mail@gmail.com">Contact</a>
+<footer class="py-10 border-t border-line text-center">
+    <div class="max-w-[720px] mx-auto px-6">
+        <div class="flex justify-center gap-6 mb-4 text-[13px]">
+            <a href="privacy.html" class="text-muted no-underline transition-colors hover:text-ink">Privacy Policy</a>
+            <a href="mailto:sezginege.mail@gmail.com" class="text-muted no-underline transition-colors hover:text-ink">Contact</a>
         </div>
-        <p>&copy; 2026 ByeByeSugar. All rights reserved.</p>
+        <p class="text-muted text-[13px]">&copy; 2026 ByeByeSugar. All rights reserved.</p>
     </div>
 </footer>
 
